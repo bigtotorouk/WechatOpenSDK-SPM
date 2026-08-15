@@ -60,6 +60,7 @@ prepare_framework() {
   set_plist_string "${output_framework}/Info.plist" "CFBundleInfoDictionaryVersion" "6.0"
   set_plist_string "${output_framework}/Info.plist" "CFBundleName" "${FRAMEWORK_NAME}"
   set_plist_string "${output_framework}/Info.plist" "CFBundleDevelopmentRegion" "en"
+  set_plist_string "${output_framework}/Info.plist" "MinimumOSVersion" "${MIN_IOS_VERSION}"
   /usr/libexec/PlistBuddy -c "Delete :CFBundleSupportedPlatforms" "${output_framework}/Info.plist" 2>/dev/null || true
   /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms array" "${output_framework}/Info.plist"
   /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms:0 string ${supported_platform}" "${output_framework}/Info.plist"
